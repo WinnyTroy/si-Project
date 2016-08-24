@@ -14,8 +14,8 @@
                 <!--Looping through this, implementation of python in html...cooooooool!!!-->
                 <!--Inputtung the colors at the top Basically, radio button to choose between the colors-->
                 {% for color in options ['colors'] %}
-                <input type="radio" id = "{{ color }}" name = " colors " value = "{{ color }}" >
-                {% if saves.get('colors') == color %}checked{% endif %} >
+                <input type="radio" id = "{{ color }}" name = " colors " value = "{{ color }}"
+                       {% if saves.get('colors') == color %}checked{% endif %}>
                 <label for= "{{ color }}"></label>
                 {% endfor %}
                 <button class="btn">Update</button>
