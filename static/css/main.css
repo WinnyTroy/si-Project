@@ -220,7 +220,7 @@ opacity: 1;
 
 .colors input[type=radio] + label {
   border: 7px solid #FFF;
-  width: 14px;
+  width: 8px;
   height: 14px;
   margin-right: 10px;
   display: inline-block;

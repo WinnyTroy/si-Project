@@ -1,6 +1,6 @@
 import json
 
-
+from options import DEFAULTS
 from flask import Flask, render_template, url_for, redirect, make_response, request
 
 app = Flask(__name__)
@@ -17,8 +17,12 @@ def get_saved_data():
 
 @app.route('/')
 def index():
-    data = get_saved_data()
-    return render_template('index.html', saves = data)
+    return render_template('index.html', saves = get_saved_data())
+
+
+@app.route('/builder')
+def builder():
+    return render_template('builder.html', saves = get_saved_data(), options= DEFAULTS)
 
 
 
@@ -26,7 +30,7 @@ def index():
 # updates saved data and then sends it back to the user
 @app.route('/save', methods = ['POST'])
 def save():
-    response = make_response(redirect(url_for('index')))
+    response = make_response(redirect(url_for('builder')))
     data = get_saved_data()
     data.update(dict(request.form.items()))
     response.set_cookie('cookname', json.dumps(data))
