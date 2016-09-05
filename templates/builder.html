@@ -28,6 +28,17 @@
             <div class="nose"><img src="/static/img/bear_nose.svg" /></div>
         </div>
         <div class="items">
+            <!--looping through the items in the options dictionary-->
+            {% for category, choices in options.items() %}
+            {% if category != 'colors' %}  <!--skipping colors, though not an efficient method-->
+            <div class="grid-100 row">
+                <div class="grid-20">
+                    <!--displays the list while getting data from another file-->
+                    <p class="category_title">{{ category.title()}}</p>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
         </div>
     </div>
 </form>
